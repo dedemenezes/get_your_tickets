@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2022_04_06_150700) do
   create_table "movies", force: :cascade do |t|
     t.string "title"
     t.text "overview"
-    t.date "release_date"
+    t.datetime "release_date"
     t.string "poster_path"
     t.string "backdrop_path"
     t.datetime "created_at", precision: 6, null: false
