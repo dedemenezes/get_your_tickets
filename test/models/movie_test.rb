@@ -9,9 +9,7 @@ class MovieTest < ActiveSupport::TestCase
   end
 
   test "movie must not be older than 'Roundhay Garden Scene'" do
-    movie = Movie.new(title: "aaa",
-                      overview: "very nice movie",
-                      release_date: Date.new(1887, 1, 1))
+    movie = movies(:older_movie)
     assert movie.invalid?
     assert_equal ["Can't be older than 'Roundhay Garden Scene'"], movie.errors[:release_date]
   end
@@ -39,5 +37,19 @@ class MovieTest < ActiveSupport::TestCase
       assert_equal message, subject.errors[:poster_path]
       assert_equal message, subject.errors[:backdrop_path]
     end
+  end
+
+  test "Movie is not valid without unique title, poster_path and background_path" do
+    movie = Movie.new(
+      title: movies(:harry_potter).title,
+      overview: "Realy nice harrypotter movie",
+      release_date: Date.today,
+      poster_path: movies(:harry_potter).poster_path,
+      backdrop_path: movies(:harry_potter).backdrop_path
+    )
+    assert movie.invalid?
+    assert_equal ["has already been taken"], movie.errors[:title]
+    assert_equal ["has already been taken"], movie.errors[:poster_path]
+    assert_equal ["has already been taken"], movie.errors[:backdrop_path]
   end
 end
