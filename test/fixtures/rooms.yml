@@ -1,0 +1,7 @@
+cinemark_one:
+  capacity: 2
+  teather: 'cinemark'
+
+too_big:
+  capacity: 101
+  teather: 'cinemark'
