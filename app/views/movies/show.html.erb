@@ -1,2 +1,15 @@
-<h1>Movies#show</h1>
-<p>Find me in app/views/movies/show.html.erb</p>
+<div class="movie-banner" style="background-image: url(<%= @movie.backdrop_path %>)">
+  <%= image_tag @movie.poster_path, alt: "#{@movie.title} poster image", class: 'movie-banner__poster__image' %>
+  <div class="movie-banner__content">
+    <h1><%= @movie.title %></h1>
+    <div class="genres">
+      <ul class="list-inline">
+        <li class="list-inline-item px-1 border">Acao</li>
+        <li class="list-inline-item px-1 border">Aventura</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<%= link_to :back, movies_path %>

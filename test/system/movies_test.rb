@@ -8,4 +8,10 @@ class MoviesTest < ApplicationSystemTestCase
     save_screenshot
     assert_selector ".card-movie", count: Movie.count
   end
+
+  test 'visiting the show' do
+    visit "/movies/#{movies(:harry_potter).id}"
+
+    assert_selector 'h1', text: movies(:harry_potter).title
+  end
 end
