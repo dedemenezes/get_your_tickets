@@ -5,8 +5,8 @@
       <h1><%= @movie.title %></h1>
       <div class="genres">
         <ul class="list-inline">
-          <li class="list-inline-item px-1 border">Acao</li>
-          <li class="list-inline-item px-1 border">Aventura</li>
+          <li class="list-inline-item px-1 border"><strong>Acao</strong></li>
+          <li class="list-inline-item px-1 border"><strong>Aventura</strong></li>
         </ul>
       </div>
     </div>
@@ -16,6 +16,14 @@
 <section class="mt-5">
   <div class="my-container">
     <h2>Sessions</h2>
+    <div class="sessions-calendar d-flex">
+      <% @days_from_today.each do |date| %>
+        <div class="session-calendar__day p-2 border text-center">
+          <p class='mb-1'><strong><%= date.strftime('%^a') %></strong></p>
+          <p class='mb-1'><%= date.strftime('%e/%d') %></p>
+        </div>
+      <% end %>
+    </div>
   </div>
 </section>
 <%= link_to :back, movies_path %>
