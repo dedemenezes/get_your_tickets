@@ -1,0 +1,3 @@
+available_seat_in_cinemark_one:
+  room: 'cinemark_one'
+  available: true
