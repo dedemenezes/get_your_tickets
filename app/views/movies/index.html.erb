@@ -1,2 +1,14 @@
-<h1>Movies#index</h1>
-<p>Find me in app/views/movies/index.html.erb</p>
+<h1 class="text-center">Movies</h1>
+
+<div class="container">
+  <div class="cards">
+    <% @movies.each do |movie| %>
+      <div class="card-movie">
+        <%#= image_tag movie.backdrop_path, class: 'card-movie__image', alt: "#{movie.title} backdrop image" %>
+        <div class="card-movie__content">
+          <p><%= movie.title %> <span><%= movie.release_date.strftime('%H:%M') %></span></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
