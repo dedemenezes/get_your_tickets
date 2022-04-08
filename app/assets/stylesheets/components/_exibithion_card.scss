@@ -1,10 +1,13 @@
+.exibithions {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-gap: 1rem;
+}
+
 .exibithion-card {
   background-color: #252525;
   width: 100%;
   padding: 1rem;
-  p {
-    margin-bottom: 0;
-  }
 }
 
 .exibithion-card .fa-heart {
@@ -15,4 +18,33 @@
 
 .exibithion-card__header {
   border-bottom: 1px solid lightgray;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  padding-bottom: 1rem;
+  align-items: center;
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.exibithion-card__header .exibithion-card__header__content {
+  display: flex;
+  align-items: center;
+}
+
+.exibition-card__header--room {
+  p {
+    color: #517897;
+    font-size: 1.25rem;
+  }
+  small {
+    color: #889597;
+    font-size: 0.75rem
+  }
+}
+
+.exibithion-card__schedule {
+  p {
+    color: white;
+  }
 }
