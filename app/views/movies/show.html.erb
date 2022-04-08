@@ -7,8 +7,12 @@
     <h2>Sessions</h2>
     <%= render 'calendar', days: @days_from_today, movie: @movie %>
     <div class="exibithions">
-      <% @teathers.each do |teather| %>
-        <%= render 'movies/show/exibithion', teather: teather, movie: @movie %>
+      <% cache @teathers do %>
+        <% @teathers.each do |teather| %>
+          <% cache teather do %>
+            <%= render 'movies/show/exibithion', teather: teather, movie: @movie %>
+          <% end %>
+        <% end %>
       <% end %>
     </div>
   </div>

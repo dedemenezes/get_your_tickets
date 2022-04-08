@@ -2,13 +2,17 @@
 
 <div class="container">
   <div class="cards">
-    <% @movies.each do |movie| %>
-      <div class="card-movie">
-        <%#= image_tag movie.backdrop_path, class: 'card-movie__image', alt: "#{movie.title} backdrop image" %>
-        <div class="card-movie__content">
-          <%= link_to movie.title, movie_path(movie) %> <span><%= movie.release_date.strftime('%Y, %B') %></span>
-        </div>
-      </div>
+    <% cache @movies.each do %>
+      <% @movies.each do |movie| %>
+        <% cache movie do %>
+          <div class="card-movie">
+            <%#= image_tag movie.backdrop_path, class: 'card-movie__image', alt: "#{movie.title} backdrop image" %>
+            <div class="card-movie__content">
+              <%= link_to movie.title, movie_path(movie) %> <span><%= movie.release_date.strftime('%Y, %B') %></span>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
     <% end %>
   </div>
 </div>

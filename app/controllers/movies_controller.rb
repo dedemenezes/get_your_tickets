@@ -3,9 +3,6 @@ class MoviesController < ApplicationController
 
   def index
     @movies = Movie.all
-    http_cache_forever(public: true) do
-      render
-    end
   end
 
   def show
