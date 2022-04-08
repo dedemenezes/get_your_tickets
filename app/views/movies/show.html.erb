@@ -24,6 +24,33 @@
         </div>
       <% end %>
     </div>
+    <div class="exibithions">
+      <% @movie.exibithions.each do |session| %>
+        <div class="exibithion-card p2">
+          <div class="exibithion-card__header row">
+            <div class="col-xs-12 col-md-8 col-lg-6 d-flex align-items-start">
+              <%= icon('far', 'heart') %>
+              <div class="exibition-card__header--room">
+                <p><%= session.teather_name %></p>
+                <p><%= session.room.teather.address %></p>
+              </div>
+            </div>
+            <div class="col-xs-12 col-md-4 col-lg-6 d-flex justify-content-around align-items-center">
+              <%= link_to "#" do %>
+                <%= icon('fas', 'plus') %> Details
+              <% end %>
+              <p><%= icon('fas', 'mobile-screen') %> Contactless entrance</p>
+            </div>
+          </div>
+          <div class="exibithion-card__content">
+            <p>Room <%= session.room.id %></p>
+            <%= link_to "#", class: 'btn-buy-session' do %>
+              <%= session.start_time.strftime('%H:%M') %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </section>
 <%= link_to :back, movies_path %>
