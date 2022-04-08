@@ -1,0 +1,4 @@
+night_session:
+  start_time: <%= Date.today %>
+  movie: "Harry Potter"
+  room: "cinemark_one"

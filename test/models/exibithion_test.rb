@@ -12,4 +12,9 @@ class ExibithionTest < ActiveSupport::TestCase
     assert subject.invalid?, "The session can't start in the past"
     assert_equal ["The session can't be in the past"], subject.errors[:start_time]
   end
+
+  test '#teather_name must return teather for the exibithion' do
+    subject = exibithions(:night_session)
+    assert_equal teathers(:cinemark).name, subject.teather_name
+  end
 end
