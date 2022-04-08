@@ -10,7 +10,7 @@ class MoviesController < ApplicationController
 
   def show
     @movie = Movie.find(params[:id])
-    @days_from_today = (DateTime.now..DateTime.now.days_since(7)).to_a
+    @days_from_today = (DateTime.now..DateTime.now.days_since(6)).to_a
     @teathers = Teather.joins(:rooms, :exibithions).where(exibithions: { movie: @movie }).group(:id)
 
     fresh_when last_modified: @movie.updated_at.utc, etag: @movie
