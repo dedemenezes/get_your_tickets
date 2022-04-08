@@ -12,25 +12,25 @@ Room.destroy_all
 Seat.destroy_all
 Exibithion.destroy_all
 
-# puts "Seeding movies"
-# url = "https://api.themoviedb.org/3/movie/top_rated?api_key=#{ENV['TMDB_API_KEY']}&language=en-US&page=1"
-# # binding.pry
-# movies_serialized = URI.open(url).read
-# movies = JSON.parse(movies_serialized)
-# movies['results'].each do |movie|
-#   Movie.create!(
-#     title: movie['title'],
-#     overview: movie['overview'],
-#     # rating: movie['vote_average'].to_f * 10,
-#     # original_language: movie['original_language'],
-#     # original_title: movie['original_title'],
-#     poster_path: "https://image.tmdb.org/t/p/w500#{movie['poster_path']}",
-#     backdrop_path: "https://image.tmdb.org/t/p/w500#{movie['backdrop_path']}",
-#     release_date: movie['release_date']
-#   )
-# end
+puts "Seeding movies"
+url = "https://api.themoviedb.org/3/movie/top_rated?api_key=#{ENV['TMDB_API_KEY']}&language=en-US&page=1"
+# binding.pry
+movies_serialized = URI.open(url).read
+movies = JSON.parse(movies_serialized)
+movies['results'].each do |movie|
+  Movie.create!(
+    title: movie['title'],
+    overview: movie['overview'],
+    # rating: movie['vote_average'].to_f * 10,
+    # original_language: movie['original_language'],
+    # original_title: movie['original_title'],
+    poster_path: "https://image.tmdb.org/t/p/w500#{movie['poster_path']}",
+    backdrop_path: "https://image.tmdb.org/t/p/w500#{movie['backdrop_path']}",
+    release_date: movie['release_date']
+  )
+end
 
-# puts "#{Movie.count} movies created\nzo/"
+puts "#{Movie.count} movies created\nzo/"
 
 puts 'creating teathers'
 
