@@ -1,13 +1,16 @@
 class Exibithion < ApplicationRecord
   belongs_to :movie
   belongs_to :room
-  has_one :teather, through: :room
 
   validates :start_time, presence: true
   validate :start_time_cannot_be_in_the_past
 
   def teather_name
-    teather.name
+    room.teather.name
+  end
+
+  def teather_address
+    room.teather.address
   end
 
   private

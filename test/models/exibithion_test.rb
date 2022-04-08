@@ -17,4 +17,9 @@ class ExibithionTest < ActiveSupport::TestCase
     subject = exibithions(:night_session)
     assert_equal teathers(:cinemark).name, subject.teather_name
   end
+
+  test '#teather_address must return teather for the exibithion' do
+    subject = exibithions(:night_session)
+    assert_equal teathers(:cinemark).address, subject.teather_address
+  end
 end
