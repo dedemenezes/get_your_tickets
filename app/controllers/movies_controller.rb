@@ -19,8 +19,6 @@ class MoviesController < ApplicationController
                                                start_time: params[:date].to_date.beginning_of_day..params[:date].to_date.end_of_day })
                          .group(:id)
     end
-
-
     fresh_when last_modified: @movie.updated_at.utc, etag: @movie
   end
 end
