@@ -12,6 +12,9 @@ class MoviesTest < ApplicationSystemTestCase
   test 'visiting the show' do
     visit "/movies/#{movies(:harry_potter).id}"
 
+    save_screenshot
     assert_selector 'h1', text: movies(:harry_potter).title
+    assert_selector '.exibithion-card', count: movies(:harry_potter).exibithions.map(&:room).map(&:teather).uniq.count
+    assert_selector '.btn-buy-session', count: movies(:harry_potter).exibithions
   end
 end
