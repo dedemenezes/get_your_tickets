@@ -18,10 +18,12 @@
     <h2>Sessions</h2>
     <div class="session-calendar">
       <% @days_from_today.each do |date| %>
-        <div class="session-calendar__day p-2 border text-center">
-          <p class='mb-1'><strong><%= date.strftime('%^a') %></strong></p>
-          <p class='mb-1'><%= date.strftime('%e/%d') %></p>
-        </div>
+        <%= link_to movie_path(@movie, date: date) do %>
+          <div class="session-calendar__day p-2 border text-center">
+            <p class='mb-1'><strong><%= date.strftime('%^a') %></strong></p>
+            <p class='mb-1'><%= date.strftime('%e/%d') %></p>
+          </div>
+        <% end %>
       <% end %>
     </div>
     <div class="exibithions">
