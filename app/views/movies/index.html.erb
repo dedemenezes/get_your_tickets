@@ -1,0 +1,14 @@
+<h1 class="text-center">Movies</h1>
+
+<div class="container">
+  <div class="cards">
+    <% @movies.each do |movie| %>
+      <div class="card-movie">
+        <%#= image_tag movie.backdrop_path, class: 'card-movie__image', alt: "#{movie.title} backdrop image" %>
+        <div class="card-movie__content">
+          <%= link_to movie.title, movie_path(movie) %> <span><%= movie.release_date.strftime('%Y, %B') %></span>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

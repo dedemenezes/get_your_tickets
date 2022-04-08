@@ -1,0 +1,16 @@
+<section>
+  <%= render 'movies/show/banner', movie: @movie %>
+</section>
+
+<section class="mt-5">
+  <div class="my-container">
+    <h2>Sessions</h2>
+    <%= render 'calendar', days: @days_from_today, movie: @movie %>
+    <div class="exibithions">
+      <% @teathers.each do |teather| %>
+        <%= render 'movies/show/exibithion', teather: teather, movie: @movie %>
+      <% end %>
+    </div>
+  </div>
+</section>
+<%= link_to :back, root_path %>

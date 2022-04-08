@@ -1,0 +1,23 @@
+.movie-banner {
+  background-size: cover;
+  height: 400px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 160px;
+}
+
+.movie-banner__poster__image {
+  height: 270px;
+  position: absolute;
+  top: 50%;
+  left: 64px;
+  margin-bottom: 10px;
+}
+
+.movie-banner__content {
+  h1, li {
+    color: white;
+  }
+}
