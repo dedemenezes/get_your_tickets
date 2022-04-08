@@ -1,62 +1,14 @@
 <section>
-  <div class="movie-banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(<%= @movie.backdrop_path %>)">
-    <%= image_tag @movie.poster_path, alt: "#{@movie.title} poster image", class: 'movie-banner__poster__image' %>
-    <div class="movie-banner__content">
-      <h1><%= @movie.title %></h1>
-      <div class="genres">
-        <ul class="list-inline">
-          <li class="list-inline-item px-1 border"><strong>Acao</strong></li>
-          <li class="list-inline-item px-1 border"><strong>Aventura</strong></li>
-        </ul>
-      </div>
-    </div>
-  </div>
+  <%= render 'movies/show/banner', movie: @movie %>
 </section>
 
 <section class="mt-5">
   <div class="my-container">
     <h2>Sessions</h2>
-    <div class="session-calendar">
-      <% @days_from_today.each do |date| %>
-        <%= link_to movie_path(@movie, date: date) do %>
-          <div class="session-calendar__day p-2 border text-center">
-            <p class='mb-1'><strong><%= date.strftime('%^a') %></strong></p>
-            <p class='mb-1'><%= date.strftime('%e/%d') %></p>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
+    <%= render 'calendar', days: @days_from_today, movie: @movie %>
     <div class="exibithions">
       <% @teathers.each do |teather| %>
-        <div class="exibithion-card p2">
-          <div class="exibithion-card__header">
-            <div class="exibithion-card__header__content">
-              <%= icon('far', 'heart') %>
-              <div class="exibition-card__header--room">
-                <p><strong><%= teather.name %></strong></p>
-                <small><%= teather.address %></small>
-              </div>
-            </div>
-            <div class="d-flex justify-content-around align-items-center">
-              <%= link_to "#" do %>
-                <%= icon('fas', 'plus') %> Details
-              <% end %>
-              <%= link_to "#" do %>
-                <%= icon('fas', 'mobile-screen') %> Contactless entrance
-              <% end %>
-            </div>
-          </div>
-          <div class="exibithion-card__schedule">
-            <% teather.rooms_playing(@movie).each do |room| %>
-              <p>Room <%= room.number %></p>
-              <% room.exibithions_for(@movie).each do |session| %>
-                <%= link_to "#", class: 'btn-buy-session' do %>
-                  <%= session.start_time.strftime('%H:%M') %>
-                <% end %>
-              <% end %>
-            <% end %>
-          </div>
-        </div>
+        <%= render 'movies/show/exibithion', teather: teather, movie: @movie %>
       <% end %>
     </div>
   </div>
