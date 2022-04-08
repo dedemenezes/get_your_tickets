@@ -1,0 +1,18 @@
+.exibithion-card {
+  background-color: #252525;
+  width: 100%;
+  padding: 1rem;
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.exibithion-card .fa-heart {
+  font-size: 2rem;
+  margin-right: 0.75rem;
+  color: orange;
+}
+
+.exibithion-card__header {
+  border-bottom: 1px solid lightgray;
+}

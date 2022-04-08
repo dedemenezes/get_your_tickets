@@ -32,7 +32,7 @@
               <%= icon('far', 'heart') %>
               <div class="exibition-card__header--room">
                 <p><%= session.teather_name %></p>
-                <p><%= session.room.teather.address %></p>
+                <small><%= session.teather_address %></small>
               </div>
             </div>
             <div class="col-xs-12 col-md-4 col-lg-6 d-flex justify-content-around align-items-center">
@@ -42,7 +42,7 @@
               <p><%= icon('fas', 'mobile-screen') %> Contactless entrance</p>
             </div>
           </div>
-          <div class="exibithion-card__content">
+          <div class="exibithion-card__schedule">
             <p>Room <%= session.room.id %></p>
             <%= link_to "#", class: 'btn-buy-session' do %>
               <%= session.start_time.strftime('%H:%M') %>
