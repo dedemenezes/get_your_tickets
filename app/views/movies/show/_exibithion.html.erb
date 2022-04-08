@@ -1,0 +1,29 @@
+<div class="exibithion-card p2">
+  <div class="exibithion-card__header">
+    <div class="exibithion-card__header__content">
+      <%= icon('far', 'heart') %>
+      <div class="exibition-card__header--room">
+        <p><strong><%= teather.name %></strong></p>
+        <small><%= teather.address %></small>
+      </div>
+    </div>
+    <div class="d-flex justify-content-around align-items-center">
+      <%= link_to "#" do %>
+        <%= icon('fas', 'plus') %> Details
+      <% end %>
+      <%= link_to "#" do %>
+        <%= icon('fas', 'mobile-screen') %> Contactless entrance
+      <% end %>
+    </div>
+  </div>
+  <div class="exibithion-card__schedule">
+    <% teather.rooms_playing(movie).each do |room| %>
+      <p>Room <%= room.number %></p>
+      <% room.exibithions_for(movie).each do |session| %>
+        <%= link_to "#", class: 'btn-buy-session' do %>
+          <%= session.start_time.strftime('%H:%M') %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

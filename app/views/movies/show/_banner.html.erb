@@ -1,0 +1,12 @@
+  <div class="movie-banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(<%= movie.backdrop_path %>)">
+    <%= image_tag movie.poster_path, alt: "#{movie.title} poster image", class: 'movie-banner__poster__image' %>
+    <div class="movie-banner__content">
+      <h1><%= movie.title %></h1>
+      <div class="genres">
+        <ul class="list-inline">
+          <li class="list-inline-item px-1 border"><strong>Acao</strong></li>
+          <li class="list-inline-item px-1 border"><strong>Aventura</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
