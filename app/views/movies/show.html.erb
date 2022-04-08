@@ -45,9 +45,9 @@
             </div>
           </div>
           <div class="exibithion-card__schedule">
-            <% teather.rooms.each do |room| %>
-              <p>Room <%= room.id %></p>
-              <% room.exibithions.each do |session| %>
+            <% teather.rooms_playing(@movie).each do |room| %>
+              <p>Room <%= room.number %></p>
+              <% room.exibithions_for(@movie).each do |session| %>
                 <%= link_to "#", class: 'btn-buy-session' do %>
                   <%= session.start_time.strftime('%H:%M') %>
                 <% end %>
