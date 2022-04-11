@@ -2,19 +2,37 @@ require "application_system_test_case"
 
 class MoviesTest < ApplicationSystemTestCase
   test "visiting the index" do
-    visit '/movies'
+    visit root_url
 
     assert_selector 'h1', text: "Movies"
-    save_screenshot
+    # save_screenshot
     assert_selector ".card-movie", count: Movie.count
   end
 
-  test 'visiting the show' do
-    visit "/movies/#{movies(:harry_potter).id}"
-
-    save_screenshot
-    assert_selector 'h1', text: movies(:harry_potter).title
-    assert_selector '.exibithion-card', count: movies(:harry_potter).exibithions.map(&:room).map(&:teather).uniq.count
-    assert_selector '.btn-buy-session', count: movies(:harry_potter).exibithions
+  def movie_subject
+    movies(:harry_potter)
   end
+
+  test 'visiting the show' do
+    visit "/movies/#{movie_subject.id}"
+
+    # save_screenshot
+    assert_selector 'h1', text: movie_subject.title
+    assert_selector '.exibithion-card', count: 1
+    assert_selector '.btn-buy-session', count: 2
+    assert_selector '.session-calendar', count: 1
+  end
+
+  test 'filtering exibithions using calendar' do
+    visit movie_path(movie_subject)
+
+    assert_selector '.exibithion-card', count: 1
+    click_link(Date.today.strftime('%^a'))
+    save_screenshot
+    assert_selector '.exibithion-card', count: 0
+    click_link(Date.tomorrow.strftime('%^a'))
+    save_screenshot
+    assert_selector '.exibithion-card', count: 1
+  end
+
 end

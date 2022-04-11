@@ -1,9 +1,9 @@
 night_session:
   start_time: <%= DateTime.now.days_since(1) %>
-  movie: "Harry Potter"
+  movie: "harry_potter"
   room: "cinemark_one"
 
 after_tomorrow_session:
   start_time: <%= DateTime.now.days_since(2) %>
-  movie: "Harry Potter"
+  movie: "harry_potter"
   room: "cinemark_one"

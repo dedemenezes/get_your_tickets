@@ -4,6 +4,6 @@ class Teather < ApplicationRecord
   validates :name, :address, :city, presence: true
 
   def rooms_playing(movie)
-    rooms.joins(:exibithions).where(exibithions: { movie: movie }).group(:id)
+    rooms.joins(:exibithions).where(exibithions: { movie: movie }).uniq
   end
 end

@@ -8,4 +8,10 @@ class TeatherTest < ActiveSupport::TestCase
     assert subject.errors[:address].any?
     assert subject.errors[:city].any?
   end
+
+  test '#rooms_playing must return rooms playing specific movie' do
+    teather = teathers(:cinemark)
+    movie = movies(:harry_potter)
+    assert_equal 1, teather.rooms_playing(movie).count
+  end
 end
