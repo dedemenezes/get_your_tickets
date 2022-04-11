@@ -1,9 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+night_sesion_booking_cart_one:
   cart: one
-  exibithion: one
+  exibithion: 'night_session'
 
-two:
+night_session_booking_cart_two:
   cart: two
-  exibithion: two
+  exibithion: 'night_session'
+
+after_tomorrow_session_booking_cart_two:
+  cart: two
+  exibithion: 'after_tomorrow_session'
