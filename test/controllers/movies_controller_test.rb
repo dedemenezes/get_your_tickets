@@ -7,7 +7,7 @@ class MoviesControllerTest < ActionDispatch::IntegrationTest
   # end
 
   # test 'should get show' do
-  #   subject = movies(:harry_potter)
+  #   subject = movies(:hp)
   #   get movie_path(subject.id)
   #   assert_response :success
 

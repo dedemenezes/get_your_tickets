@@ -15,7 +15,7 @@ class RoomTest < ActiveSupport::TestCase
 
   test "#exibithions_for must return all exibithions for an specific movie" do
     subject = rooms(:cinemark_one)
-    movie = movies(:harry_potter)
+    movie = movies(:hp)
     assert_kind_of ActiveRecord::AssociationRelation, subject.exibithions_for(movie), 'must be a collection'
     assert_equal 2, subject.exibithions_for(movie).count
   end

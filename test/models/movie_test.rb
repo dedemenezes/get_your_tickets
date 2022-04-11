@@ -41,11 +41,11 @@ class MovieTest < ActiveSupport::TestCase
 
   test "Movie is not valid without unique title, poster_path and background_path" do
     movie = Movie.new(
-      title: movies(:harry_potter).title,
+      title: movies(:hp).title,
       overview: "Realy nice harrypotter movie",
       release_date: Date.today,
-      poster_path: movies(:harry_potter).poster_path,
-      backdrop_path: movies(:harry_potter).backdrop_path
+      poster_path: movies(:hp).poster_path,
+      backdrop_path: movies(:hp).backdrop_path
     )
     assert movie.invalid?
     assert_equal ["has already been taken"], movie.errors[:title]

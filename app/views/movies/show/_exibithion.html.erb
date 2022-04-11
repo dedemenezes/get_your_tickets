@@ -20,7 +20,9 @@
     <% teather.rooms_playing(movie).each do |room| %>
       <p>Room <%= room.number %></p>
       <% room.exibithions_for(movie).each do |session| %>
-      <%= link_to new_line_item_path, class: 'btn-buy-session' do %>
+      <%= link_to new_line_item_path(session_id: session.id),
+                  class: 'btn-buy-session',
+                  id: "session_#{session.id}" do %>
           <%= session.start_time.strftime('%H:%M') %>
         <% end %>
       <% end %>

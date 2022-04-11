@@ -10,7 +10,7 @@ class MoviesTest < ApplicationSystemTestCase
   end
 
   def movie_subject
-    movies(:harry_potter)
+    movies(:hp)
   end
 
   test 'visiting the show' do

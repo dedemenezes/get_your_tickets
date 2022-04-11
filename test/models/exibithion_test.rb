@@ -8,7 +8,7 @@ class ExibithionTest < ActiveSupport::TestCase
   end
 
   test "start time can't be in the past" do
-    subject = Exibithion.new start_time: 24.hours.ago, room: rooms(:cinemark_one), movie: movies(:harry_potter)
+    subject = Exibithion.new start_time: 24.hours.ago, room: rooms(:cinemark_one), movie: movies(:hp)
     assert subject.invalid?, "The session can't start in the past"
     assert_equal ["The session can't be in the past"], subject.errors[:start_time]
   end

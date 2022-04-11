@@ -11,7 +11,7 @@ class TeatherTest < ActiveSupport::TestCase
 
   test '#rooms_playing must return rooms playing specific movie' do
     teather = teathers(:cinemark)
-    movie = movies(:harry_potter)
+    movie = movies(:hp)
     assert_equal 1, teather.rooms_playing(movie).count
   end
 end
