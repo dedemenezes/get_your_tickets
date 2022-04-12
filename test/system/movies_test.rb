@@ -32,5 +32,4 @@ class MoviesTest < ApplicationSystemTestCase
     click_link(Date.tomorrow.strftime('%^a'))
     assert_selector '.exibithion-card', count: 1
   end
-
 end
