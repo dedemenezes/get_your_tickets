@@ -1,11 +1,8 @@
 require "test_helper"
 
 class LineItemTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
 
-  test 'seat must be available' do
+  test 'seat must be available for that exibithion' do
     subject = LineItem.new(
       cart: carts(:two_line_items),
       room: rooms(:cinemark_one),

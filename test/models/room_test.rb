@@ -2,13 +2,13 @@ require "test_helper"
 
 class RoomTest < ActiveSupport::TestCase
   test 'Room not valid wihtout capacity' do
-    subject = Room.new
+    subject = Room.new teather: teathers(:cinemark), number: 3
     assert subject.invalid?
     assert subject.errors[:capacity].any?
   end
 
   test "Room capacity must not be bigger than 100" do
-    subject = Room.new(capacity: 101, teather: teathers(:cinemark))
+    subject = Room.new(capacity: 101, teather: teathers(:cinemark), number: 3)
     assert subject.invalid?
     assert subject.errors[:capacity].any?
   end
