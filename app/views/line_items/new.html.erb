@@ -8,6 +8,8 @@
           <%= f.association :seat,
                             collection: @available_seats,
                             as: :check_boxes,
+                            include_hidden: false,
+                            multiple: false,
                             input_html: { class: "seat" },
                             label_method: :seat_type,
                             value_method: :id %>
