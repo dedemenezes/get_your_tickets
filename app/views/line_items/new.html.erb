@@ -1,1 +1,22 @@
-<p>Escolha seus assentos:</p>
+<div class="container">
+  <div class="menu"></div>
+  <div class="line-item-content">
+    <%= simple_form_for [@exibithion, @line_item] do |f| %>
+      <div class="row seats">
+        <div class="col-12">
+          <p>Escolha seus assentos:</p>
+          <%= f.association :seat,
+                            collection: @seats.order(:id),
+                            as: :check_boxes,
+                            input_html: { class: "seat" },
+                            label_method: :seat_type,
+                            value_method: :id %>
+          <%= f.submit %>
+            <%# <div> %>
+              <%#= icon('fas', 'flag') %>
+            <%# </div> %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
