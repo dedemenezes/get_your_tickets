@@ -7,6 +7,26 @@ class SeatTest < ActiveSupport::TestCase
     assert subject.errors[:seat_type].any?
   end
 
+  test 'Seat not valid wihtout number' do
+    subject = Seat.new seat_type: 'regular'
+    assert subject.invalid?
+    assert subject.errors[:number].any?
+  end
+
+  test 'Seat number must be positive' do
+    subject = Seat.new seat_type: 'regular', number: -1
+    assert subject.invalid?
+    assert subject.errors[:number].any?
+  end
+
+  test "Seat number must not be bigger than room size" do
+    subject = Seat.new seat_type: 'regular', number: 3, room: rooms(:cinemark_one)
+    assert subject.invalid?
+    assert subject.errors[:number].any?
+    message = ["This room can't have more seats"]
+    assert_equal message, subject.error[:number]
+  end
+
   test 'seat availability must be false by default' do
     assert_equal false, Seat.new.available
   end
