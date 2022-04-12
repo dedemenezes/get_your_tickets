@@ -5,15 +5,15 @@ class LineItemsController < ApplicationController
   def new
     @line_item = LineItem.new
     @exibithion = Exibithion.find(params[:session_id])
-    @seats = @exibithion.room.seats
+    @available_seats = @exibithion.available_seats
   end
 
   def create
     @exibithion = Exibithion.find(params[:exibithion_id])
     @seat = Seat.find(choosen_seat_id.first)
     @line_item = LineItem.new(accepted_params)
-    @seat.update(available: false)
     if @line_item.save
+      @seat.mark_as_occupied!
       redirect_to cart_path(@cart)
     else
       render :new

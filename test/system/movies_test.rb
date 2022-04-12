@@ -18,7 +18,7 @@ class MoviesTest < ApplicationSystemTestCase
 
     assert_selector 'h1', text: movie_subject.title
     assert_selector '.exibithion-card', count: 1
-    assert_selector '.btn-buy-session', count: 2
+    assert_selector '.btn-buy-session', count: 4
     assert_selector '.session-calendar', count: 1
   end
 

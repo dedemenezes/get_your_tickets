@@ -44,4 +44,8 @@ class SeatTest < ActiveSupport::TestCase
     seat = new_seat("VIP")
     assert seat.invalid?, "#{seat.seat_type} shouldn't be valid"
   end
+
+  test '#mark_as_occupied! make seat not available' do
+    assert_not seats(:regular_available_seat_in_cinemark_one).mark_as_occupied!
+  end
 end

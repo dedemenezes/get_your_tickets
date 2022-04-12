@@ -17,3 +17,9 @@ after_tomorrow_session_booking_cart_two:
   room: 'cinemark_one'
   seat: 'regular_available_seat_in_cinemark_one'
   exibithion: 'after_tomorrow_session'
+
+unique_for_busy_exibithion:
+  cart: 'busy_cart'
+  room: 'cinemark_two'
+  seat: 'regular_occupied_seat_in_cinemark_two'
+  exibithion: 'full'

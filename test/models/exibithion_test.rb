@@ -22,4 +22,13 @@ class ExibithionTest < ActiveSupport::TestCase
     subject = exibithions(:night_session)
     assert_equal teathers(:cinemark).address, subject.teather_address
   end
+
+  test '#available_seats return available seats' do
+    subject = exibithions(:night_session)
+    expected = subject.available_seats
+    assert_equal 2, expected.size
+    subject_full = exibithions(:full)
+    expected_full = subject_full.available_seats
+    assert_equal [], expected_full
+  end
 end

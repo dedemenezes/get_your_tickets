@@ -6,7 +6,7 @@
         <div class="col-12">
           <p>Escolha seus assentos:</p>
           <%= f.association :seat,
-                            collection: @seats.order(:id),
+                            collection: @available_seats,
                             as: :check_boxes,
                             input_html: { class: "seat" },
                             label_method: :seat_type,

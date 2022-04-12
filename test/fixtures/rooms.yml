@@ -7,3 +7,8 @@ cinemark_two:
   capacity: 7
   teather: 'cinemark'
   number: 2
+
+cinemark_three:
+  capacity: 1
+  teather: 'cinemark'
+  number: 3

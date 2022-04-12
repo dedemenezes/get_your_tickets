@@ -18,12 +18,12 @@ class LineItemsTest < ApplicationSystemTestCase
   end
 
   test 'creating line_item' do
-    assert_equal 3, LineItem.count
-
-    visit new_line_item_path(session_id: exibithions(:night_session).id)
-    check("line_item_seat_id_#{seats(:regular_available_seat_in_cinemark_one).id}")
-    click_button("Create Line item")
     assert_equal 4, LineItem.count
+
+    visit new_line_item_path(session_id: exibithions(:free).id)
+    check("line_item_seat_id_#{seats(:free_regular).id}")
+    click_button("Create Line item")
+    assert_equal 5, LineItem.count
 
     assert_current_path cart_path(LineItem.last.cart)
 

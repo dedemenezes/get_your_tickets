@@ -7,3 +7,13 @@ after_tomorrow_session:
   start_time: <%= DateTime.now.days_since(2) %>
   movie: "hp"
   room: "cinemark_one"
+
+full:
+  start_time: <%= DateTime.now.days_since(1) %>
+  movie: 'hp'
+  room: 'cinemark_two'
+
+free:
+  start_time: <%= DateTime.now.days_since(1) %>
+  movie: 'hp'
+  room: 'cinemark_three'

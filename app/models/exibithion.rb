@@ -14,6 +14,11 @@ class Exibithion < ApplicationRecord
     room.teather.address
   end
 
+  def available_seats
+    seats = room.seats.where(available: true)
+    seats || seats.order(:id)
+  end
+
   private
 
   def start_time_cannot_be_in_the_past
