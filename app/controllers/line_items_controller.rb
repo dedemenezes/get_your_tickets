@@ -1,4 +1,7 @@
 class LineItemsController < ApplicationController
+  include CurrentCart
+
+  before_action :set_cart, only: [:create]
   skip_before_action :authenticate_user!
 
   def new
@@ -8,13 +11,14 @@ class LineItemsController < ApplicationController
   end
 
   def create
-    binding.pry
     @exibithion = Exibithion.find(params[:exibithion_id])
-    @line_item = LineItem.new
-    @line_item.exibithion = @exibithion
-    @line_item.room = @exibithion.room
     seat = Seat.find(choosen_seat_id.first)
-    @line_item.seat = seat
+    @line_item = LineItem.new(
+      exibithion: @exibithion,
+      room: @exibithion.room,
+      seat: seat,
+      cart: @cart
+    )
     seat.update(available: false)
     if @line_item.save
       redirect_to movies_path
