@@ -6,6 +6,6 @@ class Room < ApplicationRecord
   validates :capacity, presence: true, numericality: { less_than: 101 }
 
   def exibithions_for(movie)
-    exibithions.where(movie: movie)
+    exibithions.where(movie: movie).order(start_time: :asc)
   end
 end
