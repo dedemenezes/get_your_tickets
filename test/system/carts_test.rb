@@ -12,4 +12,12 @@ class CartsTest < ApplicationSystemTestCase
     visit cart_path(cart)
     assert_selector '.line-item', count: 2
   end
+
+  test 'visting invalid cart show' do
+    visit cart_path(12)
+    assert_raises(ActiveRecord::RecordNotFound) do
+      raise ActiveRecord::RecordNotFound
+    end
+    assert_current_path root_path
+  end
 end
