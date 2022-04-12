@@ -5,7 +5,6 @@ class MoviesTest < ApplicationSystemTestCase
     visit root_url
 
     assert_selector 'h1', text: "Movies"
-    # save_screenshot
     assert_selector ".card-movie", count: Movie.count
   end
 
@@ -16,7 +15,6 @@ class MoviesTest < ApplicationSystemTestCase
   test 'visiting the show' do
     visit "/movies/#{movie_subject.id}"
 
-    # save_screenshot
     assert_selector 'h1', text: movie_subject.title
     assert_selector '.exibithion-card', count: 1
     assert_selector '.btn-buy-session', count: 2
@@ -25,13 +23,12 @@ class MoviesTest < ApplicationSystemTestCase
 
   test 'filtering exibithions using calendar' do
     visit movie_path(movie_subject)
-
     assert_selector '.exibithion-card', count: 1
+
     click_link(Date.today.strftime('%^a'))
-    save_screenshot
     assert_selector '.exibithion-card', count: 0
+    
     click_link(Date.tomorrow.strftime('%^a'))
-    save_screenshot
     assert_selector '.exibithion-card', count: 1
   end
 

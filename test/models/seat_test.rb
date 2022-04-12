@@ -2,19 +2,19 @@ require "test_helper"
 
 class SeatTest < ActiveSupport::TestCase
   test 'Seat not valid wihtout seat type' do
-    subject = Seat.new
+    subject = Seat.new room: rooms(:cinemark_two)
     assert subject.invalid?
     assert subject.errors[:seat_type].any?
   end
 
   test 'Seat not valid wihtout number' do
-    subject = Seat.new seat_type: 'regular'
+    subject = Seat.new seat_type: 'regular', room: rooms(:cinemark_two)
     assert subject.invalid?
     assert subject.errors[:number].any?
   end
 
   test 'Seat number must be positive' do
-    subject = Seat.new seat_type: 'regular', number: -1
+    subject = Seat.new seat_type: 'regular', number: -1, room: rooms(:cinemark_two)
     assert subject.invalid?
     assert subject.errors[:number].any?
   end
@@ -22,9 +22,9 @@ class SeatTest < ActiveSupport::TestCase
   test "Seat number must not be bigger than room size" do
     subject = Seat.new seat_type: 'regular', number: 3, room: rooms(:cinemark_one)
     assert subject.invalid?
-    assert subject.errors[:number].any?
+    assert subject.errors[:capacity].any?
     message = ["This room can't have more seats"]
-    assert_equal message, subject.error[:number]
+    assert_equal message, subject.errors[:capacity]
   end
 
   test 'seat availability must be false by default' do
@@ -32,7 +32,7 @@ class SeatTest < ActiveSupport::TestCase
   end
 
   def new_seat(seat_type)
-    Seat.new(seat_type: seat_type, room: rooms(:cinemark_one), available: false)
+    Seat.new(number: 3, seat_type: seat_type, room: rooms(:cinemark_two))
   end
 
   test "Seat type must be premium or regular" do
