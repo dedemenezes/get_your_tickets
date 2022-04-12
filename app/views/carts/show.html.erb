@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="row">
+    <% @cart.line_items.each do |line_item| %>
+      <div class="col-12 col-md-4">
+        <%# <p><%= line_item.seat.number %></p> %>
+      </div>
+    <% end %>
+  </div>
+</div>
