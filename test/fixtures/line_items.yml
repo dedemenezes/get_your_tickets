@@ -1,19 +1,19 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-night_sesion_booking_cart_one:
-  cart: one
+available_night_sesion_booking_cart_one:
+  cart: 'one_line_item'
   room: 'cinemark_one'
   seat: 'regular_available_seat_in_cinemark_one'
   exibithion: 'night_session'
 
-night_session_booking_cart_two:
-  cart: two
+available_night_session_booking_cart_two:
+  cart: 'two_line_items'
   room: 'cinemark_one'
   seat: 'premium_available_seat_in_cinemark_one'
   exibithion: 'night_session'
 
 after_tomorrow_session_booking_cart_two:
-  cart: two
+  cart: 'two_line_items'
   room: 'cinemark_one'
   seat: 'regular_available_seat_in_cinemark_one'
   exibithion: 'after_tomorrow_session'
