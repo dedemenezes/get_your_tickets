@@ -4,6 +4,7 @@ class MoviesTest < ApplicationSystemTestCase
   test "visiting the index" do
     visit root_url
 
+    assert_selector 'a', text: Cart.last.id
     assert_selector 'h1', text: "Movies"
     assert_selector ".card-movie", count: Movie.count
   end
@@ -27,7 +28,7 @@ class MoviesTest < ApplicationSystemTestCase
 
     click_link(Date.today.strftime('%^a'))
     assert_selector '.exibithion-card', count: 0
-    
+
     click_link(Date.tomorrow.strftime('%^a'))
     assert_selector '.exibithion-card', count: 1
   end
