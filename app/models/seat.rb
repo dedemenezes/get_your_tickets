@@ -1,7 +1,7 @@
 class Seat < ApplicationRecord
 
   belongs_to :room
-  has_many :line_items
+  has_many :line_items, dependent: :destroy
   validates :seat_type, presence: true, inclusion: { in: %w[premium regular], message: "%{value} is not valid" }
   validates :number, presence: true, numericality: { greater_than: 0 }
 

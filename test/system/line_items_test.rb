@@ -26,5 +26,8 @@ class LineItemsTest < ApplicationSystemTestCase
     assert_equal 4, LineItem.count
 
     assert_current_path cart_path(LineItem.last.cart)
+
+    assert_selector 'p', text: LineItem.last.seat.seat_type
+    assert_selector '.line-item', count: LineItem.last.cart.line_items.length
   end
 end

@@ -52,8 +52,8 @@ puts 'creating teathers'
     puts 'creating Seats'
     Seat.create!(
       [
-        { seat_type: 'regular', available: true, room: room },
-        { seat_type: 'premium', available: true, room: room }
+        { seat_type: 'regular', available: true, room: room, number: 1 },
+        { seat_type: 'premium', available: true, room: room, number: 2 }
         # { seat_type: 'regular', available: true, room: Room.second }
       ]
     )

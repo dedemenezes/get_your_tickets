@@ -2,7 +2,7 @@
   <div class="row">
     <% @cart.line_items.each do |line_item| %>
       <div class="col-12 col-md-4">
-        <%# <p><%= line_item.seat.number %></p> %>
+        <p class='line-item line-item__seat_type'><%= line_item.seat.seat_type %></p>
       </div>
     <% end %>
   </div>
