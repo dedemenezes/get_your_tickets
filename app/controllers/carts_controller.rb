@@ -5,5 +5,6 @@ class CartsController < ApplicationController
   before_action :set_cart
 
   def show
+    @cart = Cart.find(params[:id]) unless @cart.id == params[:id]
   end
 end
