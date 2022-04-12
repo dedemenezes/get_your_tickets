@@ -24,5 +24,7 @@ class LineItemsTest < ApplicationSystemTestCase
     check("line_item_seat_id_#{seats(:regular_available_seat_in_cinemark_one).id}")
     click_button("Create Line item")
     assert_equal 4, LineItem.count
+
+    page.has_content?('Movies')
   end
 end
