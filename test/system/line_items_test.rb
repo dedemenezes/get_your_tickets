@@ -21,6 +21,10 @@ class LineItemsTest < ApplicationSystemTestCase
     assert_equal 4, LineItem.count
 
     visit new_line_item_path(session_id: exibithions(:free).id)
+    click_button("Create Line item")
+    assert_current_path new_line_item_path(session_id: exibithions(:free).id)
+    assert_selector 'div.alert-info', text: 'Missing seat'
+
     check("line_item_seat_id_#{seats(:free_regular).id}")
     click_button("Create Line item")
     assert_equal 5, LineItem.count

@@ -25,10 +25,20 @@ class ExibithionTest < ActiveSupport::TestCase
 
   test '#available_seats return available seats' do
     subject = exibithions(:night_session)
-    expected = subject.available_seats
+    expected = [
+      seats(:regular_available_seat_in_cinemark_one),
+      seats(:premium_available_seat_in_cinemark_one)
+    ]
     assert_equal 2, expected.size
+    assert_equal expected, subject.available_seats
+
+    seats(:regular_available_seat_in_cinemark_one).available = false
+    seats(:regular_available_seat_in_cinemark_one).save
+    assert_equal 1, subject.available_seats.size
+
     subject_full = exibithions(:full)
-    expected_full = subject_full.available_seats
-    assert_equal [], expected_full
+    expected_full = []
+    assert_equal expected_full, subject_full.available_seats
+
   end
 end
