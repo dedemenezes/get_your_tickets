@@ -1,5 +1,4 @@
 class LineItemsController < ApplicationController
-
   skip_before_action :authenticate_user!
   rescue_from ActionController::ParameterMissing, with: :missing_seat
 

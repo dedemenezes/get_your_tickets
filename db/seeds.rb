@@ -14,7 +14,6 @@ Exibithion.destroy_all
 
 # puts "Seeding movies"
 # url = "https://api.themoviedb.org/3/movie/top_rated?api_key=#{ENV['TMDB_API_KEY']}&language=en-US&page=1"
-# # binding.pry
 # movies_serialized = URI.open(url).read
 # movies = JSON.parse(movies_serialized)
 # movies['results'].each do |movie|
