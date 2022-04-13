@@ -12,11 +12,7 @@ class LineItemsController < ApplicationController
   def create
     @exibithion = Exibithion.find(params[:exibithion_id])
     @line_item = LineItem.new
-    @line_item.exibithion = @exibithion
-    @line_item.room = @exibithion.room
-    @line_item.cart = @cart
-    @seat = Seat.find(line_item_params[:seat_id]).first
-    @line_item.seat = @seat
+    build_line_item
     if @line_item.save
       @seat.mark_as_occupied!
       redirect_to cart_path(@cart)
