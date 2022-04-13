@@ -2,18 +2,22 @@ regular_available_seat_in_cinemark_one:
   room: 'cinemark_one'
   seat_type: 'regular'
   available: true
+  number: 1
 
 premium_available_seat_in_cinemark_one:
   room: 'cinemark_one'
   seat_type: 'premium'
   available: true
+  number: 2
 
 regular_occupied_seat_in_cinemark_two:
   room: 'cinemark_two'
   seat_type: 'regular'
   available: false
+  number: 1
 
 free_regular:
   room: 'cinemark_three'
   seat_type: 'regular'
   available: true
+  number: 1
