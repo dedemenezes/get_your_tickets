@@ -12,8 +12,8 @@ class LineItemsController < ApplicationController
     @exibithion = Exibithion.find(params[:exibithion_id])
     @line_item = LineItem.new
     build_line_item
+    @seat.mark_as_occupied!
     if @line_item.save
-      @seat.mark_as_occupied!
       redirect_to cart_path(@cart)
     else
       render :new
